@@ -82,7 +82,7 @@ pub fn prepare(
         "ntsc480" => Some(480),
         _ => None,
     };
-    let star_points = match adjustments["live90sStarPoints"].as_str().unwrap_or("8") {
+    let star_points = match adjustments["live90sStarPoints"].as_str().unwrap_or("4") {
         "4" => 4,
         "6" => 6,
         _ => 8,

@@ -401,7 +401,7 @@ export const TEXT_PATCHES = [
   "live90sDiffusionThreshold": 58,
   "live90sStarAmount": 65,
   "live90sStarLength": 68,
-  "live90sStarPoints": "8",
+  "live90sStarPoints": "4",
   "live90sStarAngle": 0,
   "live90sWarmth": 58,
   "live90sVideoNoise": 5,

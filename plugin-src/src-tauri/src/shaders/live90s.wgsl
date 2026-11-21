@@ -192,8 +192,15 @@ fn ls90_combine(@builtin(global_invocation_id) id: vec3<u32>) {
         col = ls90_to_linear(ls90_to_srgb(col) + vec3<f32>(noise * params.noise_amt * 0.045));
     }
     if ((params.flags & LIVE90S_INTERLACE) != 0u) {
-        let field = f32(img.y & 1u) * 2.0 - 1.0;
-        col *= 1.0 + field * params.interlace * 0.045;
+        // A still frame has no second temporal field. Simulate an interlace-safe
+        // camera path by vertically low-passing luma only—never fake scanlines,
+        // alternating brightness or comb displacement.
+        let y_prev = max(p.y - 1, 0);
+        let y_next = min(p.y + 1, i32(full_size.y) - 1);
+        let vertical_luma = (plain_luma(textureLoad(t0, vec2<i32>(p.x, y_prev), 0).rgb) +
+                             plain_luma(textureLoad(t0, vec2<i32>(p.x, y_next), 0).rgb)) * 0.5;
+        let current_luma = plain_luma(col);
+        col += vec3<f32>((vertical_luma - current_luma) * params.interlace * 0.30);
     }
 
     col = mix(original, max(col, vec3<f32>(0.0)), params.amount);
