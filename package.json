@@ -1,0 +1,16 @@
+{
+  "name": "rapidraw-1990s-tv-live-show-plugin",
+  "version": "0.1.0",
+  "description": "1990s TV show and live-music look with diffusion and optical light stars — a RapidRAW plugin.",
+  "license": "AGPL-3.0-or-later",
+  "keywords": ["rapidraw", "tauri", "image-editing", "broadcast", "betacam", "live-music", "star-filter", "pal"],
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "install-plugin": "node installer/install.mjs",
+    "uninstall-plugin": "node installer/uninstall.mjs",
+    "test": "node --test --import tsx tests/*.test.mjs"
+  },
+  "engines": { "node": ">=22" },
+  "devDependencies": { "tsx": "^4.23.0" }
+}
