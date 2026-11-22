@@ -1,6 +1,6 @@
 {
   "name": "rapidraw-1990s-tv-live-show-plugin",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "1990s TV show and live-music look with diffusion and optical light stars — a RapidRAW plugin.",
   "license": "AGPL-3.0-or-later",
   "keywords": ["rapidraw", "tauri", "image-editing", "broadcast", "betacam", "live-music", "star-filter", "pal"],

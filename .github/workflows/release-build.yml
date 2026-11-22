@@ -11,7 +11,7 @@ name: 'Release: Build & Package 1990s TV Live Show Edition'
 #   Variables:
 #     RAPIDRAW_REPO  owner/name of the RapidRAW source repo (default CyberTimon/RapidRAW)
 #     RAPIDRAW_REF   git tag/branch/SHA whose source matches this plugin's patch
-#                    anchors (the edition targets RapidRAW 1.7.0; set this to v1.7.0)
+#                    anchors (the edition targets RapidRAW 1.7.1; set this to v1.7.1)
 #   Secrets:
 #     RAPIDRAW_RELEASE_SIGNING_KEY  the offline Ed25519 PRIVATE key (PEM) whose
 #                    public half is embedded in wrapper/release-public-key.pem.

@@ -15,7 +15,7 @@
 
 The plugin adds `Group::Live90s`, `effects/live90s.rs`, `shaders/live90s.wgsl`,
 `Live90sSection.tsx`, presets, defaults/reconciliation, cache keys, i18n and a
-copy/paste group through anchored RapidRAW-v1.7.0 patches.
+copy/paste group through anchored RapidRAW-v1.7.1 patches.
 
 ## Verification order
 

@@ -1,8 +1,8 @@
 // patches.mjs — 1990s Television Live Show plugin for RapidRAW.
 //
 // Declarative patch set consumed by install.mjs / uninstall.mjs. Built against
-// RapidRAW v1.7.0 ("Furka Rendering Engine"). Every anchor was read verbatim
-// from the v1.7.0 source tree.
+// RapidRAW v1.7.1 ("Furka Rendering Engine"). Every anchor was verified
+// against the v1.7.1 source tree.
 //
 // Each TEXT_PATCHES entry:
 //   - file: path relative to RapidRAW root
@@ -12,7 +12,7 @@
 //   - payload: text to insert/replace with
 //   - alreadyApplied: string proving the patch is already present (idempotency)
 
-export const PLUGIN_VERSION = '0.1.0';
+export const PLUGIN_VERSION = '0.2.0';
 export const BACKUP_DIR = '.live90s-plugin-backup';
 export const MANIFEST_FILE = '.live90s-plugin-manifest.json';
 

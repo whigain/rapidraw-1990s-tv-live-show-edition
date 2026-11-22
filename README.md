@@ -6,19 +6,19 @@ PAL/NTSC SD texture, glowing stage lights and configurable optical cross-screen
 **light stars**. It deliberately avoids VHS tracking damage, CRT curvature and
 fake retro overlays.
 
-> Target: **RapidRAW v1.7.0** (Furka Rendering Engine).
+> Target: **RapidRAW v1.7.1** (Furka Rendering Engine).
 
 ## Download
 
 - **Windows end users:** download `Live90sPluginInstaller.exe` from the latest release. It contains the signed MSI/NSIS payload and installs the matching RapidRAW edition.
-- **Developers:** use the source-tree patcher below against a clean RapidRAW v1.7.0 checkout.
+- **Developers:** use the source-tree patcher below against a clean RapidRAW v1.7.1 checkout.
 
 [Latest release](https://github.com/whigain/rapidraw-1990s-tv-live-show-edition/releases/latest)
 
 ## Install into a source checkout
 
 ```sh
-git -c core.autocrlf=false -c core.eol=lf clone --depth 1 --branch v1.7.0 \
+git -c core.autocrlf=false -c core.eol=lf clone --depth 1 --branch v1.7.1 \
   https://github.com/CyberTimon/RapidRAW.git RapidRAW
 npm install
 node installer/install.mjs --rapidraw ../RapidRAW --dry-run

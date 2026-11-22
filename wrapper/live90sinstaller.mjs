@@ -33,7 +33,7 @@ import { extractEmbeddedInstaller, loadVerifiedEmbeddedRelease } from './embedde
 import { loadVerifiedRelease } from './release-bundle.mjs';
 import { RELEASE_PUBLIC_KEY_PEM } from './release-public-key.mjs';
 
-const VERSION = '0.1.1';
+const VERSION = '0.2.0';
 
 // ---------------------------------------------------------------------------
 // Pretty ANSI output — works in modern Windows terminals.

@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.2.0
+
+- Verified all anchored source patches and the full build pipeline against
+  **RapidRAW v1.7.1**.
+- Ships a matching RapidRAW 1.7.1 MSI/NSIS edition so the end-user wrapper
+  upgrades an installed 1.7.1 channel without attempting a downgrade.
+
 ## 0.1.0
 
 - Initial **1990s Television Live Show** effect for RapidRAW v1.7.0.
