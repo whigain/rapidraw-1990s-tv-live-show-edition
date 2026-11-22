@@ -1,0 +1,4 @@
+export const RELEASE_PUBLIC_KEY_PEM = `-----BEGIN PUBLIC KEY-----
+MCowBQYDK2VwAyEA4ySNFsr1WoqVht66cFg5jVmWJzk9UbbQcIqK279npdw=
+-----END PUBLIC KEY-----
+`;

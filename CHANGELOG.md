@@ -6,6 +6,7 @@
 - Betacam-era chroma bandwidth, electronic edge detail, saturated stage colour,
   lifted blacks, highlight roll-off and optional PAL/NTSC SD/interlace texture.
 - Dedicated bright-pass, diffusion and directional cross-screen shader with
-  configurable 4/6/8-point light stars, length, angle and threshold.
+  configurable 4/6/8-point light stars, length, -45° to +45° rotation and threshold.
 - Four presets: Music Special, Variety Show, Live Concert and Clean Betacam SP.
 - Idempotent, hash-safe installer/uninstaller with EN/DE i18n and copy/paste.
+- Signed self-installing Windows wrapper plus CI/release automation.

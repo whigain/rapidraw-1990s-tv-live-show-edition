@@ -1,5 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
+import { readFileSync } from 'node:fs';
 
 import {
   PLUGIN_VERSION,
@@ -66,9 +67,22 @@ test('presets cover the intended looks and remain in range', () => {
     assert.ok(['4', '6', '8'].includes(preset.values.live90sStarPoints));
     assert.ok(['off', 'pal576', 'ntsc480'].includes(preset.values.live90sSdLook));
     for (const [key, value] of Object.entries(preset.values)) {
-      if (typeof value === 'number') assert.ok(value >= 0 && value <= 100, `${preset.id}.${key}`);
+      if (typeof value !== 'number') continue;
+      if (key === 'live90sStarAngle') {
+        assert.ok(value >= -45 && value <= 45, `${preset.id}.${key}`);
+      } else {
+        assert.ok(value >= 0 && value <= 100, `${preset.id}.${key}`);
+      }
     }
   }
+});
+
+test('star angle control exposes the full negative-to-positive rotation range', () => {
+  const source = readFileSync(
+    new URL('../plugin-src/src/components/adjustments/sections/Live90sSection.tsx', import.meta.url),
+    'utf8',
+  );
+  assert.match(source, /slider\('live90sStarAngle',[\s\S]*?45, '°', -45\)/);
 });
 
 test('seed reroll returns a positive integer', () => {

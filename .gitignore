@@ -3,3 +3,8 @@ dist/
 *.log
 .DS_Store
 *.tsbuildinfo
+wrapper/*.blob
+wrapper/*.bundle.cjs
+wrapper/sea-config.json
+.env
+.env.*

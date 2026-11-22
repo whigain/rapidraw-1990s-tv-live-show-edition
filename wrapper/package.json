@@ -1,0 +1,13 @@
+{
+  "name": "rapidraw-live90s-wrapper",
+  "version": "0.1.0",
+  "description": "Builds Live90sPluginInstaller.exe (a Node SEA wrapper around live90sinstaller.mjs).",
+  "license": "AGPL-3.0-or-later",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build-exe": "node build-exe.mjs",
+    "run-dev": "node live90sinstaller.mjs"
+  },
+  "engines": { "node": ">=22" }
+}

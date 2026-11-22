@@ -8,6 +8,13 @@ fake retro overlays.
 
 > Target: **RapidRAW v1.7.0** (Furka Rendering Engine).
 
+## Download
+
+- **Windows end users:** download `Live90sPluginInstaller.exe` from the latest release. It contains the signed MSI/NSIS payload and installs the matching RapidRAW edition.
+- **Developers:** use the source-tree patcher below against a clean RapidRAW v1.7.0 checkout.
+
+[Latest release](https://github.com/whigain/rapidraw-1990s-tv-live-show-edition/releases/latest)
+
 ## Install into a source checkout
 
 ```sh

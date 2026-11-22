@@ -47,12 +47,13 @@ export default function Live90sSection({
     defaultValue: number,
     max = 100,
     suffix = ' %',
+    min = 0,
   ) => (
     <Slider
       defaultValue={defaultValue}
       label={tr(labelKey)}
       max={max}
-      min={0}
+      min={min}
       onChange={(e: SliderChangeEvent) => setField(key, e.target.value)}
       onDragStateChange={onDragStateChange}
       step={1}
@@ -135,7 +136,7 @@ export default function Live90sSection({
             value={adjustments.live90sStarPoints}
           />
         </div>
-        {slider('live90sStarAngle', 'editor.live90s.starAngle', 0, 90, '°')}
+        {slider('live90sStarAngle', 'editor.live90s.starAngle', 0, 45, '°', -45)}
         {slider('live90sWarmth', 'editor.live90s.warmth', 58)}
         {slider('live90sVideoNoise', 'editor.live90s.videoNoise', 5)}
 
