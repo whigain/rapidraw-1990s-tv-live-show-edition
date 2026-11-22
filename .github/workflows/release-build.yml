@@ -49,14 +49,17 @@ jobs:
     env:
       RAPIDRAW_REPO: ${{ vars.RAPIDRAW_REPO || 'CyberTimon/RapidRAW' }}
       RAPIDRAW_REF: ${{ github.event.inputs.rapidraw_ref || vars.RAPIDRAW_REF }}
-      # Build-speed tuning. The first run is cold (~35-40 min to compile all
-      # RapidRAW crates); these keep every later run fast and the caches small.
-      CARGO_INCREMENTAL: '0'              # incremental is useless in CI and bloats the cache
+      # Build-speed tuning. The first run is always cold (~35-40 min to compile
+      # all ~850 RapidRAW crates); these keep every later run fast and the cache
+      # small WITHOUT adding a second cache backend that could hard-fail the
+      # build. (An earlier sccache setup aborted the whole release when GitHub's
+      # Actions cache service had a transient outage — a cache hiccup must never
+      # break a release, so dependency reuse is handled by Swatinem/rust-cache
+      # alone, which degrades to a slow build on a cache miss instead of failing.)
+      CARGO_INCREMENTAL: '0'               # incremental is useless in CI and bloats the cache
       CARGO_PROFILE_RELEASE_DEBUG: 'false' # drop debuginfo -> faster link, much smaller cache
       CARGO_NET_GIT_FETCH_WITH_CLI: 'true'
       CARGO_TERM_COLOR: always
-      RUSTC_WRAPPER: sccache             # cross-run per-crate compilation cache
-      SCCACHE_GHA_ENABLED: 'true'
     steps:
       - name: Checkout plugin
         uses: actions/checkout@v5
@@ -94,19 +97,13 @@ jobs:
         with:
           rustflags: ''
 
-      # sccache caches individual compiled crates in the GitHub Actions cache,
-      # so even a source change only recompiles what actually changed.
-      - name: Set up sccache
-        uses: mozilla-actions/sccache-action@v0.0.6
-
-      # rust-cache restores the cargo registry/git sources and the resolved
-      # dependency graph. Let sccache own the compiled target objects so the two
-      # caches do not fight over target/.
+      # rust-cache restores the cargo registry/git sources AND the compiled
+      # target/ dependency objects, which is the dominant build cost. A cache
+      # service outage only makes it fall back to a cold build, never fails.
       - name: Rust cache
         uses: Swatinem/rust-cache@v2
         with:
           workspaces: rapidraw/src-tauri
-          cache-targets: 'false'
           cache-all-crates: 'true'
 
       - name: Set up Node.js
